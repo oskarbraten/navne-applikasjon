@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Navne-applikasjon</string>
     <string name="test">Hello</string>
+    <string name="kanDetteFraFør">Yep</string>
 </resources>
