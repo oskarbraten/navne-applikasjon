@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="names">
+        <item>Oskar</item>
+        <item>Sindre</item>
+    </string-array>
+    <array name="photos">
+        <item>@drawable/dog1</item>
+        <item>@drawable/dog2</item>
+    </array>
+</resources>

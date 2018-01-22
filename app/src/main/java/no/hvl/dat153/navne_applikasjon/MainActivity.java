@@ -18,5 +18,8 @@ public class MainActivity extends AppCompatActivity {
         browseNamesButton.setOnClickListener((View) -> {
             startActivity(new Intent(MainActivity.this, BrowseNamesActivity.class));
         });
+
+
+
     }
 }
