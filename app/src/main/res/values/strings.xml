@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Navne-applikasjon</string>
+    <string name="test">Hello</string>
 </resources>
