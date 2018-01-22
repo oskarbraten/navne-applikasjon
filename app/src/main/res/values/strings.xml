@@ -3,4 +3,23 @@
     <string name="main_browse_names">Browse names</string>
     <string name="main_browse_photos">Browse photos</string>
     <string name="main_learningMode">Learning mode</string>
+    <string name="main_highScoreLabelText">High score:</string>
+
+    <string name="showPerson_back">Back</string>
+
+    <string name="learningMode_task">What is my name?</string>
+    <string name="learningMode_score">"Score: "</string>
+    <string name="learningMode_check">Check</string>
+    <string name="learningMode_guessedCorrect">Correct!</string>
+    <string name="learningMode_guessedIncorrect">Incorrect!</string>
+
+    <string name="hint_name">Name..</string>
+    <string name="browseNames_addBtnText">Add new person</string>
+
+    <string name="addPerson_task">Enter name:</string>
+    <string name="addPerson_browse">Select photo..</string>
+    <string name="addPerson_addText">Add</string>
+    <string name="addPerson_errorMsg">Please make sure you\'ve entered a name and selected a photo.</string>
+    <string name="addPerson_selectPhoto">Select a photo</string>
+
 </resources>

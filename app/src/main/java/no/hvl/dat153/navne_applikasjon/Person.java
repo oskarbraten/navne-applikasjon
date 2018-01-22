@@ -26,4 +26,9 @@ public class Person {
     public void setImageURI(Uri imageURI) {
         this.imageURI = imageURI;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
