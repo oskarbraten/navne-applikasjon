@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Navne-appen</string>
-    <string name="main_list_names">Vis navn</string>
-    <string name="main_list_photos">Vis bilder</string>
+    <string name="main_browse_names">Vis navn</string>
+    <string name="main_browse_photos">Vis bilder</string>
     <string name="main_learningMode">Læringsmodus</string>
 </resources>

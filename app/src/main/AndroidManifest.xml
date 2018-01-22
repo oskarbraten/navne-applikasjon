@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BrowseNamesActivity"></activity>
+        <activity android:name=".BrowseNamesActivity" />
+        <activity android:name=".BrowsePhotosActivity"></activity>
     </application>
 
 </manifest>

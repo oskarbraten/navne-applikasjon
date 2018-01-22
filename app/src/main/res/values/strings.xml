@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Name-app</string>
-    <string name="main_list_names">Browse names</string>
-    <string name="main_list_photos">Browse photos</string>
+    <string name="main_browse_names">Browse names</string>
+    <string name="main_browse_photos">Browse photos</string>
     <string name="main_learningMode">Learning mode</string>
 </resources>
