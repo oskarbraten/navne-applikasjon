@@ -4,11 +4,16 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageSwitcher;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ViewSwitcher;
 
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
@@ -18,7 +23,7 @@ public class LearningModeActivity extends AppCompatActivity {
     private ArrayList<Person> people;
     private Person currentPerson;
 
-    private ImageView imageView;
+    private ImageSwitcher imageSwitcher;
     private EditText textInput;
     private TextView scoreText;
 
@@ -32,11 +37,25 @@ public class LearningModeActivity extends AppCompatActivity {
         GlobalState app = (GlobalState) getApplicationContext();
         people = app.getPeople();
 
-        this.imageView = findViewById(R.id.learningMode_picture);
+        this.imageSwitcher = findViewById(R.id.learningMode_photo);
+        this.imageSwitcher.setFactory(() -> {
+            // Create a new ImageView and set it's properties
+            ImageView imageView = new ImageView(getApplicationContext());
+            imageView.setAdjustViewBounds(true);
+            imageView.setLayoutParams(new ImageSwitcher.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
+            return imageView;
+        });
+
+        // set animations.
+        Animation in = AnimationUtils.loadAnimation(this, R.anim.slide_in_right);
+        Animation out = AnimationUtils.loadAnimation(this, R.anim.slide_out_right);
+        this.imageSwitcher.setInAnimation(in);
+        this.imageSwitcher.setOutAnimation(out);
+
         this.textInput = findViewById(R.id.learningMode_textInput);
         this.scoreText = findViewById(R.id.learningMode_score);
 
-        Button checkButton = (Button) findViewById(R.id.learningMode_checkButton);
+        Button checkButton = findViewById(R.id.learningMode_checkButton);
         checkButton.setOnClickListener((View v) -> {
             check();
             reset();
@@ -77,7 +96,7 @@ public class LearningModeActivity extends AppCompatActivity {
             }
         }
 
-        imageView.setImageURI(currentPerson.getImageURI());
+        this.imageSwitcher.setImageURI(currentPerson.getImageURI());
         textInput.setText("");
     }
 
