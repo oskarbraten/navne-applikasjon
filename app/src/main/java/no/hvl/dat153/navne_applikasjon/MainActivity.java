@@ -1,10 +1,24 @@
 package no.hvl.dat153.navne_applikasjon;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.io.IOException;
+import java.net.URI;
+
+import no.hvl.dat153.navne_applikasjon.misc.GlobalState;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,6 +41,13 @@ public class MainActivity extends AppCompatActivity {
         learningModeButton.setOnClickListener((View) -> {
             startActivity(new Intent(MainActivity.this, LearningModeActivity.class));
         });
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        if (!sharedPreferences.contains("display_name")) {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            intent.putExtra("initialize", true);
+            startActivity(intent);
+        }
     }
 
     public void onResume() {
@@ -35,6 +56,41 @@ public class MainActivity extends AppCompatActivity {
         GlobalState app = (GlobalState) getApplicationContext();
 
         TextView highScoreLabel = findViewById(R.id.main_highScoreLabel);
-        highScoreLabel.setText(getResources().getString(R.string.main_highScoreLabelText) + " " + Integer.toString(app.getHighScore()));
+        highScoreLabel.setText(getString(R.string.main_highScoreLabelText, app.getHighScore()));
+
+        TextView displayNameTextView = findViewById(R.id.main_displayName);
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String displayName = sharedPreferences.getString("display_name", getString(R.string.pref_display_name_default));
+
+        if (displayName.equals("")) {
+            displayName = getString(R.string.pref_display_name_default);
+        }
+
+        displayNameTextView.setText(displayName);
+
+        // load profile picture.
+        String fileName = "profile_picture.png";
+        Uri profilePictureURI = Uri.fromFile(getFileStreamPath(fileName));
+        if (profilePictureURI != null) {
+            ImageView profilePictureImageView = findViewById(R.id.main_userPhoto);
+            profilePictureImageView.setImageURI(profilePictureURI);
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add(0, 0, 0, R.string.main_settings).setIcon(R.drawable.ic_settings).setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case 0:
+                startActivity(new Intent(this, SettingsActivity.class));
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

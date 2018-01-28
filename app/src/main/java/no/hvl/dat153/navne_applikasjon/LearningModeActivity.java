@@ -1,6 +1,5 @@
 package no.hvl.dat153.navne_applikasjon;
 
-import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,10 +12,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ViewSwitcher;
 
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
+
+import no.hvl.dat153.navne_applikasjon.misc.GlobalState;
+import no.hvl.dat153.navne_applikasjon.misc.Person;
 
 public class LearningModeActivity extends AppCompatActivity {
 

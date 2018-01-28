@@ -11,11 +11,12 @@
     <string name="learningMode_check">Sjekk</string>
     <string name="learningMode_guessedCorrect">Riktig!</string>
     <string name="learningMode_guessedIncorrect">Galt!</string>
+
     <string name="hint_name">Navn..</string>
+
     <string name="browseNames_addBtnText">Legg til person</string>
-    <string name="addPerson_task">Skriv inn navn:</string>
-    <string name="addPerson_browse">Velg bilde..</string>
+
+    <string name="addPerson_task">Skriv inn navn</string>
     <string name="addPerson_addText">Legg til</string>
     <string name="addPerson_errorMsg">Vennligst sørg for at du både har skrevet et navn og valgt et bilde.</string>
-    <string name="addPerson_selectPhoto">Velg et bilde</string>
 </resources>

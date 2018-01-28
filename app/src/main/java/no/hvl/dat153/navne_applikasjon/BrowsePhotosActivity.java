@@ -11,6 +11,10 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import no.hvl.dat153.navne_applikasjon.misc.GlobalState;
+import no.hvl.dat153.navne_applikasjon.misc.ImageArrayAdapter;
+import no.hvl.dat153.navne_applikasjon.misc.Person;
+
 public class BrowsePhotosActivity extends AppCompatActivity {
 
     @Override

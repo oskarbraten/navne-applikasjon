@@ -1,4 +1,4 @@
-package no.hvl.dat153.navne_applikasjon;
+package no.hvl.dat153.navne_applikasjon.misc;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
+
+import no.hvl.dat153.navne_applikasjon.R;
 
 public class ImageArrayAdapter extends BaseAdapter {
     private Context mContext;

@@ -1,10 +1,13 @@
-package no.hvl.dat153.navne_applikasjon;
+package no.hvl.dat153.navne_applikasjon.misc;
 
 import android.app.Application;
 import android.content.res.TypedArray;
 import android.net.Uri;
 
 import java.util.ArrayList;
+
+import no.hvl.dat153.navne_applikasjon.MainActivity;
+import no.hvl.dat153.navne_applikasjon.R;
 
 public class GlobalState extends Application {
 

@@ -1,4 +1,4 @@
-package no.hvl.dat153.navne_applikasjon;
+package no.hvl.dat153.navne_applikasjon.misc;
 
 import android.net.Uri;
 
