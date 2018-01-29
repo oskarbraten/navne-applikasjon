@@ -1,6 +1,6 @@
 package no.hvl.dat153.navne_applikasjon;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -19,7 +19,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import no.hvl.dat153.navne_applikasjon.misc.GlobalState;
 import no.hvl.dat153.navne_applikasjon.misc.Person;
 
-public class LearningModeActivity extends AppCompatActivity {
+public class LearningModeActivity extends Activity {
 
     private ArrayList<Person> people;
     private Person currentPerson;

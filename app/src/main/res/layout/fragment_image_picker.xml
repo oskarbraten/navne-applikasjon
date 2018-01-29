@@ -1,14 +1,17 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="no.hvl.dat153.navne_applikasjon.fragments.ImagePickerFragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context="no.hvl.dat153.navne_applikasjon.fragments.ImagePickerDialogFragment"
+    tools:layout_editor_absoluteY="81dp">
 
     <ImageView
         android:id="@+id/imagePicker_imagePreview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_weight="0"
         android:adjustViewBounds="true"
@@ -18,26 +21,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/imagePicker_selectBtn"
+        android:id="@+id/imagePicker_chooseBtn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_weight="0"
-        android:text="@string/imagePicker_select"
-        app:layout_constraintEnd_toStartOf="@+id/imagePicker_captureBtn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imagePicker_imagePreview" />
-
-    <Button
-        android:id="@+id/imagePicker_captureBtn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/imagePicker_capture"
+        android:text="@string/imagePicker_action"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imagePicker_selectBtn"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imagePicker_imagePreview" />
 
 </android.support.constraint.ConstraintLayout>

@@ -1,7 +1,7 @@
 package no.hvl.dat153.navne_applikasjon;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -9,14 +9,14 @@ import android.widget.ImageView;
 import no.hvl.dat153.navne_applikasjon.misc.GlobalState;
 import no.hvl.dat153.navne_applikasjon.misc.Person;
 
-public class ShowPersonActivity extends AppCompatActivity {
+public class ShowPersonActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_person);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
 
         Intent intent = getIntent();
         int index = intent.getIntExtra("index", 0);
@@ -26,7 +26,7 @@ public class ShowPersonActivity extends AppCompatActivity {
         ImageView image = findViewById(R.id.showPerson_imageView);
         image.setImageURI(person.getImageURI());
 
-        getSupportActionBar().setTitle(person.getName());
+        getActionBar().setTitle(person.getName());
     }
 
     @Override

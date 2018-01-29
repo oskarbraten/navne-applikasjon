@@ -1,15 +1,18 @@
 package no.hvl.dat153.navne_applikasjon.fragments;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
-import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.Toast;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 import no.hvl.dat153.navne_applikasjon.R;
 
@@ -46,45 +49,31 @@ public class SettingsFragment extends PreferenceFragment {
         Preference profilePicturePreference = findPreference("profile_picture");
         profilePicturePreference.setOnPreferenceClickListener((Preference preference) -> {
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setNegativeButton(android.R.string.cancel, (DialogInterface dialog, int id) -> {
-                dialog.cancel();
+            ImagePickerDialogFragment imagePickerDialogFragment = new ImagePickerDialogFragment();
+
+            imagePickerDialogFragment.setOnImageSelectedListener((Uri selectedImage) -> {
+                try {
+                    String fileName = "profile_picture.png";
+
+                    InputStream is = getActivity().getContentResolver().openInputStream(selectedImage);
+                    Bitmap image = BitmapFactory.decodeStream(is);
+
+                    FileOutputStream fos = getActivity().openFileOutput(fileName, getActivity().MODE_PRIVATE);
+                    image.compress(Bitmap.CompressFormat.PNG, 100, fos);
+
+                    fos.flush();
+                    fos.close();
+
+                    imagePickerDialogFragment.dismiss();
+
+                } catch (IOException e) {
+                    imagePickerDialogFragment.dismiss();
+                    Toast.makeText(getActivity(), R.string.pref_profile_picture_savingError, Toast.LENGTH_SHORT);
+                    e.printStackTrace();
+                }
             });
 
-            builder.setTitle("Select or capture a profile picture");
-
-            LinearLayout layout = new LinearLayout(getActivity());
-            layout.setOrientation(LinearLayout.HORIZONTAL);
-            layout.setPadding(16, 16,16, 16);
-            layout.setWeightSum(2);
-
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
-            params.weight = 1;
-
-            Button selectBtn = new Button(getActivity());
-            selectBtn.setLayoutParams(params);
-            selectBtn.setText(R.string.imagePicker_select);
-
-            Button captureBtn = new Button(getActivity());
-            captureBtn.setLayoutParams(params);
-            captureBtn.setText(R.string.imagePicker_capture);
-
-            layout.addView(selectBtn);
-            layout.addView(captureBtn);
-
-            builder.setView(layout);
-
-            AlertDialog dialog = builder.create();
-
-            dialog.show();
-
-            selectBtn.setOnClickListener((View v) -> {
-
-            });
-
-            captureBtn.setOnClickListener((View v) -> {
-
-            });
+            imagePickerDialogFragment.show(getFragmentManager(), "DialogFragment");
 
             return true;
         });

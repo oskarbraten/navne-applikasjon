@@ -2,25 +2,19 @@ package no.hvl.dat153.navne_applikasjon;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.io.IOException;
-import java.net.URI;
-
 import no.hvl.dat153.navne_applikasjon.misc.GlobalState;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         GlobalState app = (GlobalState) getApplicationContext();
 
         TextView highScoreLabel = findViewById(R.id.main_highScoreLabel);
-        highScoreLabel.setText(getString(R.string.main_highScoreLabelText, app.getHighScore()));
+        highScoreLabel.setText(getString(R.string.main_highScoreLabelText) + app.getHighScore());
 
         TextView displayNameTextView = findViewById(R.id.main_displayName);
 

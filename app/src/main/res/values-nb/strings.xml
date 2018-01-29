@@ -4,7 +4,7 @@
     <string name="main_browse_names">Vis navn</string>
     <string name="main_browse_photos">Vis bilder</string>
     <string name="main_learningMode">Læringsmodus</string>
-    <string name="main_highScoreLabelText">Rekord:</string>
+    <string name="main_highScoreLabelText">"Rekord: "</string>
     <string name="showPerson_back">Tilbake</string>
     <string name="learningMode_task">Hva er navnet mitt?</string>
     <string name="learningMode_score">"Poengsum: "</string>
@@ -14,9 +14,20 @@
 
     <string name="hint_name">Navn..</string>
 
-    <string name="browseNames_addBtnText">Legg til person</string>
+    <string name="browseNames_addBtnText">Legg til en ny person</string>
 
     <string name="addPerson_task">Skriv inn navn</string>
     <string name="addPerson_addText">Legg til</string>
     <string name="addPerson_errorMsg">Vennligst sørg for at du både har skrevet et navn og valgt et bilde.</string>
+    <string name="main_settings">Instillinger</string>
+    <string name="addPerson_title">Legg til person</string>
+    <string name="pref_display_name_title">Visningsnavn</string>
+    <string name="pref_display_name_initialize_title">Skriv inn visningsnavnet ditt</string>
+    <string name="pref_display_name_summary">Navnet som vises på hovedmenyen</string>
+    <string name="pref_display_name_default">Mitt navn</string>
+    <string name="pref_profile_picture_title">Profilbilde</string>
+    <string name="pref_profile_picture_summary">Bildet som vises i hovedmenyen</string>
+    <string name="imagePicker_title">Velg et bilde</string>
+    <string name="imagePicker_action">Velg bilde ...</string>
+    <string name="pref_profile_picture_savingError">Feil! Kunne ikke å lagre bilde.</string>
 </resources>

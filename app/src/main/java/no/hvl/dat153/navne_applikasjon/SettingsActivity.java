@@ -1,11 +1,11 @@
 package no.hvl.dat153.navne_applikasjon;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 
 import no.hvl.dat153.navne_applikasjon.fragments.SettingsFragment;
 
-public class SettingsActivity extends AppCompatActivity {
+public class SettingsActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,31 +1,28 @@
 package no.hvl.dat153.navne_applikasjon;
 
-import android.content.Intent;
+import android.app.ActionBar;
+import android.app.Activity;
 import android.net.Uri;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
 
-import no.hvl.dat153.navne_applikasjon.fragments.ImagePickerFragment;
+import no.hvl.dat153.navne_applikasjon.fragments.ImagePickerDialogFragment;
 import no.hvl.dat153.navne_applikasjon.misc.GlobalState;
 import no.hvl.dat153.navne_applikasjon.misc.Person;
 
-public class AddPersonActivity extends AppCompatActivity {
+public class AddPersonActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_person);
 
-        ActionBar actionBar = getSupportActionBar();
+        ActionBar actionBar = getActionBar();
 
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle(R.string.addPerson_title);
@@ -38,9 +35,9 @@ public class AddPersonActivity extends AppCompatActivity {
 
             String name = nameEditText.getText().toString();
 
-            ImagePickerFragment imagePickerFragment = (ImagePickerFragment) getSupportFragmentManager().findFragmentById(R.id.addPerson_imagePickerFragment);
+            ImagePickerDialogFragment imagePickerDialogFragment = (ImagePickerDialogFragment) getFragmentManager().findFragmentById(R.id.addPerson_imagePickerFragment);
 
-            Uri selectedPhoto = imagePickerFragment.getSelectedImage();
+            Uri selectedPhoto = imagePickerDialogFragment.getSelectedImage();
 
             if (selectedPhoto != null && name.length() > 0) {
 

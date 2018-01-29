@@ -5,7 +5,7 @@
     <string name="main_browse_names">Browse names</string>
     <string name="main_browse_photos">Browse photos</string>
     <string name="main_learningMode">Learning mode</string>
-    <string name="main_highScoreLabelText">High score: %1$x</string>
+    <string name="main_highScoreLabelText">High score: </string>
 
     <string name="showPerson_back">Back</string>
 
@@ -22,21 +22,19 @@
     <string name="addPerson_task">Enter name</string>
     <string name="addPerson_addText">Add</string>
     <string name="addPerson_errorMsg">Please make sure you\'ve entered a name and selected a photo.</string>
-    <string name="addPerson_selectPhoto">Select a photo</string>
 
-    <string name="imagePicker_task">Select or capture an image</string>
-    <string name="imagePicker_select">Select</string>
-    <string name="imagePicker_capture">Capture</string>
+    <string name="imagePicker_title">Choose an image</string>
+    <string name="imagePicker_action">Choose image ...</string>
 
-    <string name="selectProfilePicture_title">Set your profile picture</string>
-    <string name="selectProfilePicture_savingError">Error! Unable to save picture.</string>
+
 
     <!-- Strings related to Settings -->
     <string name="pref_display_name_title">Display name</string>
-    <string name="pref_display_name_initialize_title">Enter a display name</string>
+    <string name="pref_display_name_initialize_title">Enter your display name</string>
     <string name="pref_display_name_summary">The name shown in the main menu</string>
     <string name="pref_display_name_default">My name</string>
     <string name="pref_profile_picture_title">Profile picture</string>
     <string name="pref_profile_picture_summary">The picture shown in the main menu</string>
+    <string name="pref_profile_picture_savingError">Error! Unable to save picture.</string>
 
 </resources>

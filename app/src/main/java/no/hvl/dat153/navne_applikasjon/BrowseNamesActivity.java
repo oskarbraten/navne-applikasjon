@@ -1,8 +1,8 @@
 package no.hvl.dat153.navne_applikasjon;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,14 +17,14 @@ import java.util.ArrayList;
 import no.hvl.dat153.navne_applikasjon.misc.GlobalState;
 import no.hvl.dat153.navne_applikasjon.misc.Person;
 
-public class BrowseNamesActivity extends AppCompatActivity {
+public class BrowseNamesActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browse_names);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
 
         GlobalState app = (GlobalState) getApplicationContext();
         ArrayList<Person> people = app.getPeople();

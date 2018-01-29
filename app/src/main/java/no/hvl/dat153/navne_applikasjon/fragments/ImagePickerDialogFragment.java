@@ -1,25 +1,27 @@
 package no.hvl.dat153.navne_applikasjon.fragments;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import no.hvl.dat153.navne_applikasjon.R;
 
-public class ImagePickerFragment extends Fragment {
+public class ImagePickerDialogFragment extends DialogFragment {
 
     public static final int PICK_IMAGE = 1;
     private Uri selectedImage;
     private OnImageSelectedListener imageSelectedListener;
 
-    public ImagePickerFragment() {
+    public ImagePickerDialogFragment() {
         // Required empty public constructor
     }
 
@@ -37,18 +39,13 @@ public class ImagePickerFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        Button selectBtn = view.findViewById(R.id.imagePicker_selectBtn);
-        Button captureBtn = view.findViewById(R.id.imagePicker_captureBtn);
+        Button chooseBtn = view.findViewById(R.id.imagePicker_chooseBtn);
 
-        selectBtn.setOnClickListener((View v) -> {
+        chooseBtn.setOnClickListener((View v) -> {
             Intent getContentIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
             getContentIntent.setType("image/*");
 
             startActivityForResult(getContentIntent, PICK_IMAGE);
-        });
-
-        captureBtn.setOnClickListener((View v) -> {
-            Toast.makeText(getActivity(), "Not implemented.", Toast.LENGTH_SHORT);
         });
     }
 
@@ -56,6 +53,7 @@ public class ImagePickerFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == getActivity().RESULT_OK && requestCode == PICK_IMAGE) {
             selectedImage = data.getData();
+
             ImageView imagePreview = getView().findViewById(R.id.imagePicker_imagePreview);
             imagePreview.setImageURI(selectedImage);
 
@@ -64,6 +62,25 @@ public class ImagePickerFragment extends Fragment {
                 this.imageSelectedListener.callback(selectedImage);
             }
         }
+    }
+
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+        builder.setTitle(R.string.imagePicker_title);
+
+        builder.setNegativeButton(android.R.string.cancel, (DialogInterface dialog, int whichButton) -> {
+            dialog.dismiss();
+        });
+
+        View view = onCreateView(getActivity().getLayoutInflater(), null, savedInstanceState);
+        onViewCreated(view, savedInstanceState);
+
+        builder.setView(view);
+
+        return builder.create();
     }
 
     @Override
