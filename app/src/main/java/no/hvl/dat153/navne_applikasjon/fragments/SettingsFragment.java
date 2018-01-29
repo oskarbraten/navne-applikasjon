@@ -64,18 +64,17 @@ public class SettingsFragment extends PreferenceFragment {
                     fos.flush();
                     fos.close();
 
-                    imagePickerDialogFragment.dismiss();
-
                 } catch (IOException e) {
-                    imagePickerDialogFragment.dismiss();
                     Toast.makeText(getActivity(), R.string.pref_profile_picture_savingError, Toast.LENGTH_SHORT);
                     e.printStackTrace();
                 }
+
+                imagePickerDialogFragment.dismiss();
             });
 
             imagePickerDialogFragment.show(getFragmentManager(), "DialogFragment");
 
-            return true;
+            return false;
         });
     }
 }

@@ -18,6 +18,8 @@ import no.hvl.dat153.navne_applikasjon.R;
 public class ImagePickerDialogFragment extends DialogFragment {
 
     public static final int PICK_IMAGE = 1;
+    public static final int PICK_IMAGE_DIALOG = 2;
+
     private Uri selectedImage;
     private OnImageSelectedListener imageSelectedListener;
 
@@ -26,42 +28,13 @@ public class ImagePickerDialogFragment extends DialogFragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_image_picker, container, false);
-    }
-
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        Button chooseBtn = view.findViewById(R.id.imagePicker_chooseBtn);
-
-        chooseBtn.setOnClickListener((View v) -> {
-            Intent getContentIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-            getContentIntent.setType("image/*");
-
-            startActivityForResult(getContentIntent, PICK_IMAGE);
-        });
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == getActivity().RESULT_OK && requestCode == PICK_IMAGE) {
-            selectedImage = data.getData();
-
-            ImageView imagePreview = getView().findViewById(R.id.imagePicker_imagePreview);
-            imagePreview.setImageURI(selectedImage);
-
-            // pass selected image to callback.
-            if (this.imageSelectedListener != null) {
-                this.imageSelectedListener.callback(selectedImage);
-            }
-        }
+        View view = inflater.inflate(R.layout.fragment_image_picker, container, false);
+        setupChooseBtn(view, PICK_IMAGE);
+        return view;
     }
 
     @Override
@@ -75,12 +48,53 @@ public class ImagePickerDialogFragment extends DialogFragment {
             dialog.dismiss();
         });
 
-        View view = onCreateView(getActivity().getLayoutInflater(), null, savedInstanceState);
-        onViewCreated(view, savedInstanceState);
+        // Inflate the layout for this fragment
+        View view = getActivity().getLayoutInflater().inflate(R.layout.fragment_image_picker, null, false);
+
+        setupChooseBtn(view, PICK_IMAGE_DIALOG);
+
+        // hide image preview.
+        view.findViewById(R.id.imagePicker_imagePreview).setVisibility(View.INVISIBLE);
 
         builder.setView(view);
 
         return builder.create();
+    }
+
+    public void setupChooseBtn(View view, int requestCode) {
+        Button chooseBtn = view.findViewById(R.id.imagePicker_chooseBtn);
+
+        chooseBtn.setOnClickListener((View v) -> {
+            Intent getContentIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+            getContentIntent.setType("image/*");
+
+            startActivityForResult(getContentIntent, requestCode);
+        });
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        final int RESULT_OK = getActivity().RESULT_OK;
+
+        if (resultCode == RESULT_OK && requestCode == PICK_IMAGE) {
+            selectedImage = data.getData();
+
+            ImageView imagePreview = getView().findViewById(R.id.imagePicker_imagePreview);
+            imagePreview.setImageURI(selectedImage);
+
+            // pass selected image to callback.
+            if (this.imageSelectedListener != null) {
+                this.imageSelectedListener.callback(selectedImage);
+            }
+        } else if (resultCode == getActivity().RESULT_OK && requestCode == PICK_IMAGE_DIALOG) {
+            selectedImage = data.getData();
+
+            // pass selected image to callback.
+            if (this.imageSelectedListener != null) {
+                this.imageSelectedListener.callback(selectedImage);
+            }
+        }
     }
 
     @Override
@@ -88,7 +102,6 @@ public class ImagePickerDialogFragment extends DialogFragment {
         super.onDetach();
         this.imageSelectedListener = null;
     }
-
 
     public Uri getSelectedImage() {
         return selectedImage;

@@ -2,6 +2,8 @@ package no.hvl.dat153.navne_applikasjon;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -11,6 +13,9 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 import no.hvl.dat153.navne_applikasjon.misc.GlobalState;
 
@@ -57,18 +62,17 @@ public class MainActivity extends Activity {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         String displayName = sharedPreferences.getString("display_name", getString(R.string.pref_display_name_default));
 
-        if (displayName.equals("")) {
-            displayName = getString(R.string.pref_display_name_default);
+        if (!displayName.equals("")) {
+            displayNameTextView.setText(displayName);
         }
 
-        displayNameTextView.setText(displayName);
-
         // load profile picture.
-        String fileName = "profile_picture.png";
-        Uri profilePictureURI = Uri.fromFile(getFileStreamPath(fileName));
-        if (profilePictureURI != null) {
+        String filePath = getFilesDir().getAbsolutePath() + "/profile_picture.png";
+
+        Bitmap image = BitmapFactory.decodeFile(filePath);
+        if (image != null) {
             ImageView profilePictureImageView = findViewById(R.id.main_userPhoto);
-            profilePictureImageView.setImageURI(profilePictureURI);
+            profilePictureImageView.setImageBitmap(image);
         }
     }
 
