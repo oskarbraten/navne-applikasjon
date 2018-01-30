@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.app.Activity;
@@ -14,10 +13,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.io.IOException;
-import java.io.InputStream;
-
 import no.hvl.dat153.navne_applikasjon.misc.GlobalState;
+
+import static java.lang.Thread.sleep;
 
 public class MainActivity extends Activity {
 
@@ -68,12 +66,21 @@ public class MainActivity extends Activity {
 
         // load profile picture.
         String filePath = getFilesDir().getAbsolutePath() + "/profile_picture.png";
+        ImageView profilePictureImageView = findViewById(R.id.main_userPhoto);
 
-        Bitmap image = BitmapFactory.decodeFile(filePath);
-        if (image != null) {
-            ImageView profilePictureImageView = findViewById(R.id.main_userPhoto);
-            profilePictureImageView.setImageBitmap(image);
-        }
+        new Thread(() -> {
+            Bitmap image = BitmapFactory.decodeFile(filePath);
+            try {
+                sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            if (image != null) {
+                profilePictureImageView.post(() -> {
+                    profilePictureImageView.setImageBitmap(image);
+                });
+            }
+        }).start();
     }
 
     @Override

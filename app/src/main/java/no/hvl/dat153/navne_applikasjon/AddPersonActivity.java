@@ -17,6 +17,8 @@ import no.hvl.dat153.navne_applikasjon.misc.Person;
 
 public class AddPersonActivity extends Activity {
 
+    private Uri selectedImage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,17 +33,18 @@ public class AddPersonActivity extends Activity {
 
         EditText nameEditText = findViewById(R.id.addPerson_nameEditText);
 
+        ImagePickerDialogFragment imagePickerDialogFragment = (ImagePickerDialogFragment) getFragmentManager().findFragmentById(R.id.addPerson_imagePickerFragment);
+
+        imagePickerDialogFragment.setOnImageSelectedListener((Uri selectedImage) -> {
+            this.selectedImage = selectedImage;
+        });
+
         addButton.setOnClickListener((View v) -> {
 
             String name = nameEditText.getText().toString();
 
-            ImagePickerDialogFragment imagePickerDialogFragment = (ImagePickerDialogFragment) getFragmentManager().findFragmentById(R.id.addPerson_imagePickerFragment);
-
-            Uri selectedPhoto = imagePickerDialogFragment.getSelectedImage();
-
-            if (selectedPhoto != null && name.length() > 0) {
-
-                Person person = new Person(name, selectedPhoto);
+            if (this.selectedImage != null && name.length() > 0) {
+                Person person = new Person(name, this.selectedImage);
                 final GlobalState app = (GlobalState) getApplicationContext();
                 app.getPeople().add(person);
                 NavUtils.navigateUpFromSameTask(this);
