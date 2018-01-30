@@ -13,7 +13,6 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -29,11 +28,12 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".AddPersonActivity"
-            android:parentActivityName=".BrowseNamesActivity" />
+            android:parentActivityName=".BrowseNamesActivity"/>
         <activity android:name=".SettingsActivity"></activity>
 
     </application>
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="ANDROID.PERMISSION.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="ANDROID.PERMISSION.WRITE_EXTERNAL_STORAGE"/>
 </manifest>

@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,8 +66,16 @@ public class ImagePickerDialogFragment extends DialogFragment {
         Button chooseBtn = view.findViewById(R.id.imagePicker_chooseBtn);
 
         chooseBtn.setOnClickListener((View v) -> {
+
             Intent getContentIntent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
             getContentIntent.setType("image/*");
+
+            // TODO: Implement camera support. Add runtime camera permissions.
+
+            //Intent getFromCameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+            //Intent chooserIntent = Intent.createChooser(getContentIntent, "Select or capture image");
+            //chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] {getFromCameraIntent});
 
             startActivityForResult(getContentIntent, requestCode);
         });

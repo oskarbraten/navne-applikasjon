@@ -45,6 +45,8 @@ public class MainActivity extends Activity {
             intent.putExtra("initialize", true);
             startActivity(intent);
         }
+
+
     }
 
     public void onResume() {
@@ -70,12 +72,12 @@ public class MainActivity extends Activity {
 
         new Thread(() -> {
             Bitmap image = BitmapFactory.decodeFile(filePath);
-            try {
-                sleep(5000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
             if (image != null) {
+                try {
+                    sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 profilePictureImageView.post(() -> {
                     profilePictureImageView.setImageBitmap(image);
                 });
