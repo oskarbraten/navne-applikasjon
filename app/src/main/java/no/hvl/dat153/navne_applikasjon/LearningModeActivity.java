@@ -48,8 +48,8 @@ public class LearningModeActivity extends Activity {
         });
 
         // set animations.
-        Animation in = AnimationUtils.loadAnimation(this, R.anim.slide_in_right);
-        Animation out = AnimationUtils.loadAnimation(this, R.anim.slide_out_right);
+        Animation in = AnimationUtils.loadAnimation(this, android.R.anim.slide_in_left);
+        Animation out = AnimationUtils.loadAnimation(this, android.R.anim.slide_out_right);
         this.imageSwitcher.setInAnimation(in);
         this.imageSwitcher.setOutAnimation(out);
 
@@ -82,7 +82,7 @@ public class LearningModeActivity extends Activity {
             Toast.makeText(LearningModeActivity.this, R.string.learningMode_guessedIncorrect, Toast.LENGTH_SHORT).show();
         }
 
-        scoreText.setText(Integer.toString(this.score));
+        scoreText.setText(getResources().getString(R.string.learningMode_score) + " " + this.score);
     }
 
     private void reset() {

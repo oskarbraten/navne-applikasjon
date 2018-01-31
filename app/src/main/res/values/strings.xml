@@ -1,32 +1,28 @@
 <resources>
     <string name="app_name">Name-app</string>
 
+    <string name="hint_name">Name..</string>
+    <string name="confirm">Confirm</string>
+
     <string name="main_settings">Settings</string>
     <string name="main_browse_names">Browse names</string>
     <string name="main_browse_photos">Browse photos</string>
     <string name="main_learningMode">Learning mode</string>
-    <string name="main_highScoreLabelText">High score: </string>
-
-    <string name="showPerson_back">Back</string>
+    <string name="main_highScoreLabelText">High score:</string>
 
     <string name="learningMode_task">What is my name?</string>
-    <string name="learningMode_score">"Score: "</string>
+    <string name="learningMode_score">"Score:"</string>
     <string name="learningMode_check">Check</string>
     <string name="learningMode_guessedCorrect">Correct!</string>
     <string name="learningMode_guessedIncorrect">Incorrect!</string>
 
-    <string name="hint_name">Name..</string>
     <string name="browseNames_addBtnText">Add new person</string>
 
     <string name="addPerson_title">Add person</string>
     <string name="addPerson_task">Enter name</string>
     <string name="addPerson_addText">Add</string>
+    <string name="addPerson_chooseImage">Choose image ...</string>
     <string name="addPerson_errorMsg">Please make sure you\'ve entered a name and selected a photo.</string>
-
-    <string name="imagePicker_title">Choose an image</string>
-    <string name="imagePicker_action">Choose image ...</string>
-
-
 
     <!-- Strings related to Settings -->
     <string name="pref_display_name_title">Display name</string>
@@ -36,5 +32,6 @@
     <string name="pref_profile_picture_title">Profile picture</string>
     <string name="pref_profile_picture_summary">The picture shown in the main menu</string>
     <string name="pref_profile_picture_savingError">Error! Unable to save picture.</string>
+    <string name="pref_profile_picture_alert_title">Set as profile picture?</string>
 
 </resources>

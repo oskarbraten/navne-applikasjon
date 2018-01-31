@@ -4,10 +4,10 @@
     <string name="main_browse_names">Vis navn</string>
     <string name="main_browse_photos">Vis bilder</string>
     <string name="main_learningMode">Læringsmodus</string>
-    <string name="main_highScoreLabelText">"Rekord: "</string>
+    <string name="main_highScoreLabelText">"Rekord:"</string>
     <string name="showPerson_back">Tilbake</string>
     <string name="learningMode_task">Hva er navnet mitt?</string>
-    <string name="learningMode_score">"Poengsum: "</string>
+    <string name="learningMode_score">"Poengsum:"</string>
     <string name="learningMode_check">Sjekk</string>
     <string name="learningMode_guessedCorrect">Riktig!</string>
     <string name="learningMode_guessedIncorrect">Galt!</string>

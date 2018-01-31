@@ -15,8 +15,6 @@ import android.widget.TextView;
 
 import no.hvl.dat153.navne_applikasjon.misc.GlobalState;
 
-import static java.lang.Thread.sleep;
-
 public class MainActivity extends Activity {
 
     @Override
@@ -45,8 +43,6 @@ public class MainActivity extends Activity {
             intent.putExtra("initialize", true);
             startActivity(intent);
         }
-
-
     }
 
     public void onResume() {
@@ -55,7 +51,7 @@ public class MainActivity extends Activity {
         GlobalState app = (GlobalState) getApplicationContext();
 
         TextView highScoreLabel = findViewById(R.id.main_highScoreLabel);
-        highScoreLabel.setText(getString(R.string.main_highScoreLabelText) + app.getHighScore());
+        highScoreLabel.setText(getString(R.string.main_highScoreLabelText) + " " + app.getHighScore());
 
         TextView displayNameTextView = findViewById(R.id.main_displayName);
 
@@ -73,11 +69,6 @@ public class MainActivity extends Activity {
         new Thread(() -> {
             Bitmap image = BitmapFactory.decodeFile(filePath);
             if (image != null) {
-                try {
-                    sleep(3000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
                 profilePictureImageView.post(() -> {
                     profilePictureImageView.setImageBitmap(image);
                 });

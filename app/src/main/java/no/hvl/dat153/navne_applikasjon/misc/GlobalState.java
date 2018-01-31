@@ -17,10 +17,6 @@ public class GlobalState extends Application {
         return people;
     }
 
-    public void setPeople(ArrayList<Person> people) {
-        this.people = people;
-    }
-
     private int highScore = 0;
 
     public int getHighScore() {
@@ -47,7 +43,5 @@ public class GlobalState extends Application {
             Person person = new Person(name, imageURI);
             people.add(person);
         }
-
     }
-
 }
