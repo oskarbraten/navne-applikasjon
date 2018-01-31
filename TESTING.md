@@ -28,6 +28,14 @@ D: Test that the user is able to add a person, name them, add a picture and that
 
 R: That user is able to add person to app.
 
+#### Test Gallery
 
-Test AddPerson
-Test 
+D: Test that the user is able to see all the pictures, and that when a picture is clicked it displays the correct name to the picture.
+
+R: That all pictures are displayed and shows the correct names.
+
+#### Test LearningMode
+
+D: Test that when learningmode is started that when the correct name is inputed it confirms that it was correct, and that when a wrong string is entered it says that it was wrong. Also check that the same picture is not displayed twice in a row, unless there is only a single picture. 
+
+R: That the correct name is confirmed as correct and that a wrong string is rejected as wrong. That the same picture won't be shown twice in a row.
