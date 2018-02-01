@@ -2,7 +2,7 @@
 # Test Plan
 DAT153: Obligatory assignment 2
 
-## Test OnInstallBehaviour
+## Test InstallBehaviour
 
 __Description:__
 Test that when the app is first installed, it will prompt the user for a name, then check that assigned name is correctly displayed.
@@ -17,7 +17,7 @@ __Expected result:__
 The app prompts the user for a name and when entered displays it correctly in the main menu (MainActivity).
 
 
-## Test ChangeUserName
+## Test ChangeUsername
 
 __Desciption:__
 Test that displayed username is changed when adjusted in settings.
@@ -59,10 +59,24 @@ None.
 __Expected result:__
 That user is able to add person to app.
 
-## Test Gallery
+## Test OpenPersonFromPhotos
 
 __Description:__
-Test that the user is able to see all the pictures, and that when a picture is clicked it displays the correct name to the picture.
+Test that when a picture is clicked it opens ShowPersonActivity and displays the correct name to the picture.
+
+__Type:__
+UI
+
+__Pre-conditions:__
+None.
+
+__Expected result:__
+That all pictures are displayed and shows the correct names.
+
+## Test OpenPersonFromNames
+
+__Description:__
+Test that when a name is clicked it opens ShowPersonActivity and displays the correct name.
 
 __Type:__
 UI
