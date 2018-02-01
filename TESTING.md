@@ -1,9 +1,6 @@
 DAT153: Obligatory assignment 1 &amp; 2
 # Test Plan
 
-D: Description
-R: Expected results
-
 ### Test OnInstallBehaviour
 
 __Description:__
