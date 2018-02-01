@@ -1,4 +1,4 @@
-DAT153: Obligatory assignment 1 &amp; 2
+DAT153: Obligatory assignment 2
 # Test Plan
 
 ### Test OnInstallBehaviour
