@@ -1,47 +1,104 @@
 DAT153: Obligatory assignment 1 &amp; 2
 # Test Plan
-D: Description
 
+D: Description
 R: Expected results
 
-#### Test OnInstallBehaviour.
+### Test OnInstallBehaviour
 
+__Description:__
 Test that when the app is first installed, it will prompt the user for a name, then check that assigned name is correctly displayed.
 
-Expected result is that the app prompts user for name and displays it correctly
+__Type:__
+Activity/UI
 
-#### Test ChangeUserName
+__Pre-conditions:__
+Cleared default shared preferences.
 
-D: Test that displayed username is changed when adjusted in settings.
+__Expected result:__
+The app prompts the user for a name and when entered displays it correctly in the main menu (MainActivity).
 
-R: That the username is changed
 
-#### Test ChangeUserPicture
+### Test ChangeUserName
 
-D: Test that displayed userpicture is changed when adjusted in settings and saved to application internal storage.
+__Desciption:__
+Test that displayed username is changed when adjusted in settings.
 
-R: That the profilepicture is changed and saved to app internal storage.
+__Type:__
+UI
 
-#### Test AddPerson
+__Pre-conditions:__
+None.
 
-D: Test that the user is able to add a person, name them, add a picture and that this is saved to the app and correctly displayed in the galery.
+__Expected result:__
+That the username is changed, and updated in the main menu (MainActivity).
 
-R: That user is able to add person to app.
+### Test ChangeUserPicture
 
-#### Test Gallery
+__Desciption:__
+Test that displayed userpicture is changed when adjusted in settings and saved to application internal storage.
 
-D: Test that the user is able to see all the pictures, and that when a picture is clicked it displays the correct name to the picture.
+__Type:__
+UI
 
-R: That all pictures are displayed and shows the correct names.
+__Pre-conditions:__
+None.
 
-#### Test LearningMode
+__Expected result:__
+That the profilepicture is changed and saved to app internal storage.
 
-D: Test that when learningmode is started that when the correct name is inputed it confirms that it was correct and that points are awarded, and that when a wrong string is entered it says that it was wrong and points removed. Also check that the same picture is not displayed twice in a row, unless there is only a single picture. 
+### Test AddPerson
 
-R: That the correct name is confirmed as correct and rewarded and that a wrong string is rejected as wrong and punished. That the same picture won't be shown twice in a row.
+__Description:__
+Test that the user is able to add a person, name them, add a picture and that this is saved to the app and correctly displayed in the gallery.
 
-#### Test HighscoreUpdate
+__Type:__
+UI
 
-D: Check that when a new highscore is reached in learning mode, that it will properly replace the old highscore, and that a lower score than a highscore doesn't affect the displayed highscore in main activity.
+__Pre-conditions:__
+None.
 
-R: That a new highscore is saved and displayed in main activity, and that any lower score will be discarded
+__Expected result:__
+That user is able to add person to app.
+
+### Test Gallery
+
+__Description:__
+Test that the user is able to see all the pictures, and that when a picture is clicked it displays the correct name to the picture.
+
+__Type:__
+UI
+
+__Pre-conditions:__
+None.
+
+__Expected result:__
+That all pictures are displayed and shows the correct names.
+
+### Test LearningMode
+
+__Description:__
+Test that when learningmode is started that when the correct name is inputed it confirms that it was correct and that points are awarded, and that when a wrong string is entered it says that it was wrong and points removed. Also check that the same picture is not displayed twice in a row, unless there is only a single picture. 
+
+__Type:__
+UI
+
+__Pre-conditions:__
+None.
+
+__Expected result:__
+That the correct name is confirmed as correct and rewarded and that a wrong string is rejected as wrong and punished. That the same picture won't be shown twice in a row.
+
+### Test HighscoreUpdate
+
+__Description:__
+Check that when a new highscore is reached in learning mode, that it will properly replace the old highscore, and that a lower score than a highscore doesn't affect the displayed highscore in main activity.
+
+__Type:__
+UI
+
+__Pre-conditions:__
+None.
+
+__Expected result:__
+That a new highscore is saved and displayed in main activity, and that any lower score will be discarded
