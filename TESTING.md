@@ -90,7 +90,9 @@ That all pictures are displayed and shows the correct names.
 ## Test LearningMode
 
 __Description:__
-Test that when learningmode is started that when the correct name is inputed it confirms that it was correct and that points are awarded, and that when a wrong string is entered it says that it was wrong and points removed. Also check that the same picture is not displayed twice in a row, unless there is only a single picture. 
+Check that when the correct name is inputed points are awarded, and that when the incorrect name is entered points are removed.
+Check that the same picture is not displayed twice in a row.
+Also check that the highscore shown in the main menu (MainActivity) remains at the peak of correct guesses.
 
 __Type:__
 UI
@@ -99,9 +101,11 @@ __Pre-conditions:__
 None.
 
 __Expected result:__
-That the correct name is confirmed as correct and rewarded and that a wrong string is rejected as wrong and punished. That the same picture won't be shown twice in a row.
+That correct guesses are rewarded with 1 point, and that incorrect guesses are punished with -1 points.
+That the same picture won't be shown twice in a row.
+That peak score is shown in main menu.
 
-## Test HighscoreUpdate
+## Test Highscore
 
 __Description:__
 Check that when a new highscore is reached in learning mode, that it will properly replace the old highscore, and that a lower score than a highscore doesn't affect the displayed highscore in main activity.
