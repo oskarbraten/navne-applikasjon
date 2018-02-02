@@ -43,7 +43,7 @@ public class BrowseNamesActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(0, 0, 0, R.string.browseNames_addBtnText).setIcon(R.drawable.ic_add).setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        getMenuInflater().inflate(R.menu.names_menu, menu);
         return true;
     }
 
@@ -53,7 +53,7 @@ public class BrowseNamesActivity extends Activity {
             case android.R.id.home:
                 NavUtils.navigateUpFromSameTask(this);
                 return true;
-            case 0:
+            case R.id.browseNames_addBtn:
                 startActivity(new Intent(this, AddPersonActivity.class));
                 return true;
         }

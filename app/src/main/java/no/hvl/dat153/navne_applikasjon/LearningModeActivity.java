@@ -59,18 +59,19 @@ public class LearningModeActivity extends Activity {
         Button checkButton = findViewById(R.id.learningMode_checkButton);
         checkButton.setOnClickListener((View v) -> {
             check();
-            reset();
         });
 
         // call once to initialize.
-        app.setHighScore(0);
         reset();
     }
 
     private void check() {
         String guess = textInput.getText().toString();
+        boolean reset = true;
 
-        if (currentPerson.getName().toLowerCase().equals(guess.toLowerCase())) {
+        if (guess.isEmpty()) {
+            reset = false;
+        } else if (currentPerson.getName().toLowerCase().equals(guess.toLowerCase())) {
             this.score++;
             Toast.makeText(LearningModeActivity.this, R.string.learningMode_guessedCorrect, Toast.LENGTH_SHORT).show();
 
@@ -83,9 +84,18 @@ public class LearningModeActivity extends Activity {
         }
 
         scoreText.setText(getResources().getString(R.string.learningMode_score) + " " + this.score);
+
+        if (reset) {
+            reset();
+        } else {
+            Toast.makeText(LearningModeActivity.this, R.string.learningMode_noNameEntered, Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void reset() {
+
+        scoreText.setText(getResources().getString(R.string.learningMode_score) + " " + this.score);
+
         // select random person, and make sure it is not already selected.
         while (true) {
             int randomNumber = ThreadLocalRandom.current().nextInt(0, people.size());
@@ -109,5 +119,9 @@ public class LearningModeActivity extends Activity {
         if (prevScore < newScore) {
             app.setHighScore(newScore); // new high score
         }
+    }
+
+    public Person getCurrentPerson() {
+        return currentPerson;
     }
 }

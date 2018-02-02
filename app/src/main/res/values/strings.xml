@@ -33,5 +33,6 @@
     <string name="pref_profile_picture_summary">The picture shown in the main menu</string>
     <string name="pref_profile_picture_savingError">Error! Unable to save picture.</string>
     <string name="pref_profile_picture_alert_title">Set as profile picture?</string>
+    <string name="learningMode_noNameEntered">Please enter a name.</string>
 
 </resources>

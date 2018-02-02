@@ -1,5 +1,6 @@
 package no.hvl.dat153.navne_applikasjon;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,7 +17,10 @@ public class ShowPersonActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_person);
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        ActionBar actionBar = getActionBar();
+
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
 
         Intent intent = getIntent();
         int index = intent.getIntExtra("index", 0);
@@ -26,7 +30,7 @@ public class ShowPersonActivity extends Activity {
         ImageView image = findViewById(R.id.showPerson_imageView);
         image.setImageURI(person.getImageURI());
 
-        getActionBar().setTitle(person.getName());
+        actionBar.setTitle(person.getName());
     }
 
     @Override
